@@ -1,5 +1,26 @@
-<sprk-icon-set></sprk-icon-set>
-<main  class="sprk-o-CenteredColumn sprk-u-ptl">
-  <h1 class="sprk-b-TypeDisplayTwo sprk-b-PageTitle">Hello, Spark! 👋</h1>
-  <h1 class="sprk-b-TypeDisplaySix sprk-u-mtl">Add components here</h1>
-</main>
+<sprk-accordion>
+  <sprk-accordion-item
+    title="Donuts"
+    additionalClasses="sprk-u-mbs"
+    additionalHeadingClasses="sprk-b-TypeDisplaySeven"
+    idString="accordion-item-1"
+    analyticsString="object.action.event"
+  >
+    <p>
+      <router-outlet></router-outlet>
+    </p>
+  </sprk-accordion-item>
+
+  <sprk-accordion-item
+    title="Hall of Famers"
+    idString="accordion-item-2"
+    analyticsString="object.action.event"
+    additionalHeadingClasses="sprk-b-TypeDisplaySeven"
+  >
+    <p>
+      <app-people></app-people>>
+    </p>
+  </sprk-accordion-item>
+</sprk-accordion>
+<br />
+
