@@ -6,8 +6,46 @@
       idString="accordion-item-1"
       analyticsString="object.action.event"
     >
-      <p>
+      <div>
         {{myPerson.year}} -- Known for: {{myPerson.innovation}}
-      </p>
+        <button
+          [hidden]="editing"
+          *ngIf="!editing"
+          (click)="editingInnovation()"
+          variant="tertiary"
+          idString="button-tertiary"
+          sprkButton
+        >
+          Edit
+        </button>
+        <br />
+        <input
+          [hidden]="!editing"
+          *ngIf="editing"
+          type="text"
+          placeholder="Edit innovation"
+          [(ngModel)]="innovationEdit"
+        />
+        <button
+          [hidden]="!editing"
+          *ngIf="editing"
+          (click)="editInnovation(myPerson); cancelEditInnovation()"
+          variant="tertiary"
+          idString="button-tertiary"
+          sprkButton
+        >
+          Submit
+        </button>
+        <button
+          [hidden]="!editing"
+          *ngIf="editing"
+          (click)="cancelEditInnovation()"
+          variant="tertiary"
+          idString="button-tertiary"
+          sprkButton
+        >
+          Cancel
+        </button>
+    </div>
     </sprk-accordion-item>
   </sprk-accordion>

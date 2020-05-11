@@ -10,7 +10,9 @@ import { People, Person } from '../interfaces/people';
 export class PeopleComponent implements OnInit {
   people:People;
 
-  constructor(private scienceService:ScienceService) { }
+  constructor(
+    private scienceService:ScienceService
+    ) { }
 
   ngOnInit(): void {
     this.scienceService.getPeople().subscribe(

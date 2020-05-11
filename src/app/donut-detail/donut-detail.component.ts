@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DonutsService } from '../donuts.service';
 import { Results, Donuts, Donut } from '../interfaces/donuts';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationStart, NavigationEnd } from '@angular/router';
+// import { Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-donut-detail',
@@ -11,10 +12,12 @@ import { ActivatedRoute } from '@angular/router';
 export class DonutDetailComponent implements OnInit {
   donut: Donut;
   id: number;
+  showLoadingIndicator = true;
 
   constructor(
     private donutService: DonutsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    // private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -27,5 +30,15 @@ export class DonutDetailComponent implements OnInit {
         error => console.error(error)
       );
     });
+
+    this.route.params.subscribe((routerEvent: Event) => {
+      if(routerEvent instanceof NavigationStart){
+        this.showLoadingIndicator = true;
+      }
+
+      if(routerEvent instanceof NavigationEnd){
+        this.showLoadingIndicator = false;
+      }
+    })
   }
 }

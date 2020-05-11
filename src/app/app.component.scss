@@ -1,0 +1,40 @@
+.innerContent {
+    display: flex;
+    margin: 125px auto;
+    border-radius: 30px;
+    padding: 30px;
+    max-width: 800px;
+    flex-direction: column;
+    align-items: center;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 6px;
+    background-color: rgb(255, 255, 255);
+    opacity: 95%;
+}
+
+.spinner {
+    display: flex;
+    // margin: 100px auto;
+    border-radius: 10px;
+    max-width: 112px;
+    flex-direction: column;
+    align-items: center;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 6px;
+    background-color: rgb(255, 255, 255);
+    opacity: 95%;
+}
+
+.title {
+    font-size: 5em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Century Gothic';
+    position: absolute;
+    top: 2%;
+    left: 31.6%;
+}
+

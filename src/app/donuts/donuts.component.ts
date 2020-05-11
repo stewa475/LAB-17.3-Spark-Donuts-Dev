@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DonutsService } from '../donuts.service';
 import { Results, Donuts, Donut } from '../interfaces/donuts';
+import { Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-donuts',
@@ -9,9 +10,12 @@ import { Results, Donuts, Donut } from '../interfaces/donuts';
 })
 export class DonutsComponent implements OnInit {
   donuts:Results;
-  
+  showLoadingIndicator = false;
 
-  constructor(private donutService:DonutsService) { }
+  constructor(
+    private donutService:DonutsService,
+    private _router: Router
+    ) { }
 
   ngOnInit(): void {
     this.donutService.getDonuts().subscribe(
@@ -19,6 +23,15 @@ export class DonutsComponent implements OnInit {
       error => console.error(error)
     );
 
+    this._router.events.subscribe((routerEvent: Event) => {
+      if(routerEvent instanceof NavigationStart){
+        this.showLoadingIndicator = true;
+      }
+
+      if(routerEvent instanceof NavigationEnd){
+        this.showLoadingIndicator = false;
+      }
+    })
     
   }
 }

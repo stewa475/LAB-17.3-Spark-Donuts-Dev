@@ -1,3 +1,13 @@
+<div *ngIf="showLoadingIndicator">
+    <button
+      variant="secondary"
+      idString="button-loading-secondary"
+      sprkButton
+      [isSpinning]="true"
+    >
+      Loading...
+    </button>
+</div>
 <h1>Donuts</h1>
 <li *ngFor="let d of donuts?.results">
 {{d.id}}.) {{d.name}} <a [routerLink]="['/donuts', d.id]">See More</a>

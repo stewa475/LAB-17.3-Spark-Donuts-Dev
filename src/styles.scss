@@ -7,3 +7,10 @@ $sprk-webfonts:
   ((url('https://www.rockomni.com/mcds/assets/GlobalContent/NonStockImages/Fonts/RocketSans-Light.woff2') format('woff2'), url('https://www.rockomni.com/mcds/assets/GlobalContent/NonStockImages/Fonts/RocketSans-Light.woff') format('woff')), RocketSans, 300);
 
 @import "node_modules/@sparkdesignsystem/spark/spark.scss";
+
+html {
+  background-image: url('http://41.media.tumblr.com/1a99d21ebc7225a2a5f673b4d4150f2d/tumblr_nt3igxPZeL1rn6c38o2_500.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
